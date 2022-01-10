@@ -10,10 +10,10 @@ def index():
     '''
     return render_template('index.html')
 
-@app.route('/article/<article_id>')
+@app.route('/article/<int:article_id>')
 def article(article_id):
 
     '''
     View article page function that returns the article details page and its data
     '''
-    return render_template('movie.html',id = article_id)
+    return render_template('article.html',id = article_id)
