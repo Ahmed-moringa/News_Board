@@ -9,9 +9,9 @@ def index():
     View root page function that returns the index page and its data
     '''
 
-    popular_articles = get_articles('popular')
+    buisness_articles = get_articles('buisness')
     message = 'Home - Welcome to fast reliable News Board'
-    return render_template('index.html' ,message = message,popular = popular_articles)
+    return render_template('index.html' ,message = message,buisness = buisness_articles)
 
 @app.route('/article/<article_id>')
 def article(article_id):
