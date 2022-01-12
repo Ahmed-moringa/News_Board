@@ -1,31 +1,24 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to fast reliable News Board </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- Popular article section  -->
-        <h3> Buisness Articles </h3>
-         <ul>
-            {{ macro.diplayArticleList(buisness)}}
-        </ul>
-        <hr>
-         <!-- Sports news  -->
-         <h3> Sports news </h3>
-         <ul>
-            {{ macro.diplayArticleList(sports)}}
-        </ul>
-        <hr>
-        <!-- General news -->
-        <h3>General news</h3>
-         <ul>
-            {{ macro.diplayArticleList(general)}}
-        </ul>
-    </body>
-</html>
+
+
+<!-- Content block -->
+{% block content %}
+<!-- Popular article section  -->
+<h3> Buisness Articles </h3>
+    <ul>
+    {{ macro.diplayArticleList(buisness)}}
+</ul>
+<hr>
+    <!-- Sports news  -->
+    <h3> Sports news </h3>
+    <ul>
+    {{ macro.diplayArticleList(sports)}}
+</ul>
+<hr>
+<!-- General news -->
+<h3>General news</h3>
+    <ul>
+    {{ macro.diplayArticleList(general)}}
+</ul>
+{% endblock%}
