@@ -1,0 +1,5 @@
+{% macro diplayArticleList(article_list) %}
+    {% for article in article_list %}
+        <li>{{ article.title }}</li>
+    {% endfor %}
+{% endmacro %}
