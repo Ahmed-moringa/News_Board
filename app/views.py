@@ -1,7 +1,6 @@
-from flask import render_template
-from flask.helpers import get_root_path
+from flask import render_template, request, redirect
 from app import app
-from .request import get_articles
+from .request import get_sources ,get_articles
 
 # Views
 @app.route('/')
@@ -10,16 +9,15 @@ def index():
     View root page function that returns the index page and its data
     '''
     #Getting categories
-    buisness_articles = get_articles('buisness')
-    sports_articles = get_articles('sports')
-    general_articles = get_articles('general')
     message = 'Home - Welcome to fast reliable News Board'
-    return render_template('index.html' ,message = message,buisness = buisness_articles,sports = sports_articles,general = general_articles)
+    news_sources = get_sources()
+    return render_template('index.html' ,message = message,news_sources = news_sources)
 
-@app.route('/article/<article_id>')
-def article(article_id):
+@app.route('/articles/<source_id>')
+def articles(source_id):
     '''
     View article page function that returns the article details page and its data
     '''
-    title = f'You are viewing {article_id}'
-    return render_template('article.html', title = title)
+    title = f"{source_id} page"
+    articles = get_articles(source_id)
+    return render_template('article.html', articles = articles)
