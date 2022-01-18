@@ -1,7 +1,9 @@
 from app import app
 import urllib.request,json
+from .models import news
 
-from models import article
+Articles = news.Articles
+Sources = news.Sources
 
 
 # Getting api key
@@ -10,7 +12,7 @@ api_key = app.config['NEWS_API_KEY']
 ## Getting the movie base url
 base_url = app.config["NEWS_API_BASE_URL"]
 articles_base_url = app.config['NEWS_ARTICLES_BASE_URL']
-news_source_url = app.conig['NEWS_SOURCE_URL']
+news_source_url = app.config['NEWS_SOURCE_URL']
 
 
 def get_sources():
@@ -49,7 +51,7 @@ def process_results(sources_list):
         url = source_item.get('url')
         category = source_item.get('category')
 
-        source_object = Sources(id, name, description, url, category)
+        source_object = Sources (id, name, description, url, category)
         sources_results.append(source_object)
 
     return sources_results

@@ -1,15 +1,14 @@
 {% macro displaySourcesList(sources) %}
         {% for source in sources %}
-          <div class="card-body">
-            <a href='/articles/{{source.id}}'>
-              <h2 style="font-weight: bolder;">{{ source.name}}</h2>
-            </a>
-            <h5 style="color:black">{{source.category.upper()}}</h5>
-
-            <div class="well" style="height:100px; background-color:whitesmoke">
-                <p style="font-weight:bolder">{{ source.description|truncate(150)}}</p>
+          
+          <div class="card text-center">
+            <h3 class="card-header">{{ source.name}}</h3>
+            <div class="card-body">
+              <h5 class="card-title style="color: black;">{{source.category.upper()}}</h5>
+              <p class="card-text">{{ source.description|truncate(150) }}</p>
+              <a href='/articles/{{source.id}}' class="btn btn-primary">{{ source.url }}</a>
             </div>
-
+            <hr>
           </div>
 
         {% endfor %}
@@ -19,19 +18,23 @@
 {% macro displayArticleList(article_list) %}
     {% for article in article_list %}
     <!--display source -->
-      <div class="card-body">
-              <li class="well" style="list-style:none;background-color:whitesmoke">
-                  <a href="{{article.url}}"style="text-decoration:none;"></a>
-                    <h3 style="font-size:20px;color:#1100ff;">
-                        {{article.title}}
-                    </h3>
-                     <p style="font-size:25px;">  Date: {{article.publishedAt[:10]}} </p>
-                    <p style="font-size:25px; color:black;">{{article.description|truncate(70)}}</p>
-                    <a href="{{ article.url }}" class="article-link" style="font-size:25px; color:black;">Read more...</a>
-                    <img src='{{article.urlToImage}}' width="" height="" class="img-responsive">
-
-              </li>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+      <div class="card">
+        <img src="{{article.url}}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h3 class="card-title" style="color: black;">{{article.title}}</h3>
+          <p class="card-text">{{article.description|truncate(70)}}</p>
+          <p class="card-text">Date: {{article.publishedAt[:10]}}</p>
+        </div>
+        <div class="card-body">
+          <a href="{{ article.urlToImage}}" class="card-link">{{ article.urlToImage }}</a>
+        </div>
+        <hr>
       </div>
+      </div>
+      </div>
+
 
 
     {% endfor %}
