@@ -4,21 +4,14 @@
 
 <!-- Content block -->
 {% block content %}
-<!-- Popular article section  -->
-<h3> Buisness Articles </h3>
-    <ul>
-    {{ macro.diplayArticleList(buisness)}}
-</ul>
-<hr>
-    <!-- Sports news  -->
-    <h3> Sports news </h3>
-    <ul>
-    {{ macro.diplayArticleList(sports)}}
-</ul>
-<hr>
-<!-- General news -->
-<h3>General news</h3>
-    <ul>
-    {{ macro.diplayArticleList(general)}}
-</ul>
-{% endblock%}
+<div class="container">
+</div>
+    <div class="container">
+      
+      <div class="row">
+        <ul>
+          {{ macro.displaySourcesList(news_sources)}}
+        </ul>
+      </div>
+    </div>
+{% endblock %}  
