@@ -1,4 +1,4 @@
-class Article:
+class Articles:
     """ 
     Article class to define Article Objects
     
@@ -14,7 +14,7 @@ class Article:
 
 class Sources:
     """ 
-    Sources class,defines news source objects
+    Sources class to define news source objects
     """
 
     def __init__(self, id, name, description, url, category):
